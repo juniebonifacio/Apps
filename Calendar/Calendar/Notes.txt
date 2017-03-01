@@ -1,0 +1,8 @@
+Sample: http://localhost:8080/Calendar/webapi/myresource
+
+Entities:
+User i.e. Junie Bonifacio
+Role i.e. Employee, Supervisor, Operations Manager
+Date
+Shrinkages i.e. VL, SL, CTO, ML
+
