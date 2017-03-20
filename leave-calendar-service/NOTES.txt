@@ -1,0 +1,9 @@
+http://localhost:8080/leave-calendar-service/hello
+
+http://localhost:8080/leave-calendar-service/services/getAllItems
+
+
+
+
+Database Modeling:
+

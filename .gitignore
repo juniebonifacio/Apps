@@ -1,0 +1,14 @@
+leave-calendar-service/target
+leave-calendar-service/target/*
+leave-calendar-ui/node_modules
+leave-calendar-ui/node_modules/*
+leave-calendar-service/.settings
+leave-calendar-service/.settings/*
+leave-calendar-ui/app/.DS_Store
+leave-calendar-service/.DS_Store
+leave-calendar-service/.settings/
+leave-calendar-service/.settings/*
+
+leave-calendar-ui/app/*.js
+leave-calendar-ui/app/*.js.map
+
