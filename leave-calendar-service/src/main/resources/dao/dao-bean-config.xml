@@ -23,6 +23,8 @@
 		<constructor-arg name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-
+	<bean id="timeOffDao" class="com.dao.impl.TimeOffDaoImpl">
+		<constructor-arg name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 
 </beans>

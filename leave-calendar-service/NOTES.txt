@@ -7,3 +7,38 @@ http://localhost:8080/leave-calendar-service/services/getAllItems
 
 Database Modeling:
 
+Credits to the owner. I am loosely basing my database with the sample.
+http://www.databaseanswers.org/data_models/employees/index.htm
+
+A. Planning your database:
+
+	1. What's the point?
+	- This database is to support the Leave Calendar App that will make it easier for the team lead.
+	
+	2. What do you have already?
+	Physical items ie. Forms - None.
+	
+	People and expertise - me
+	
+	Existing database - none
+	
+	3. What Entities do you have?
+	
+	
+	- you will create separate tables for each entity.
+	- use Singular nouns for your table names.
+	- check the relationships of those entities.
+
+
+	Therefore, list of entities (which will be the table names):
+		User
+		Role
+		TimeOff
+		
+
+Error:
+leave-calendar-service threw exception: org.hibernate.hql.internal.ast.QuerySyntaxException: TimeOffVO is not mapped [FROM TimeOffVO]
+Solution: 
+Edit the file persistence.xml under  src/main/webapp/META-INF, not the one under the src main java
+
+
