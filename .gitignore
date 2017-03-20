@@ -11,4 +11,7 @@ leave-calendar-service/.settings/*
 
 leave-calendar-ui/app/*.js
 leave-calendar-ui/app/*.js.map
+leave-calendar-service/.classpath
+leave-calendar-service/.project
+
 
