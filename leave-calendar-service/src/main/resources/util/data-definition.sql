@@ -34,3 +34,4 @@ INSERT INTO TIMEOFF (NAME, DESCRIPTION) values ('BERL', 'Bereavement Leave');
 INSERT INTO TIMEOFF (NAME, DESCRIPTION) values ('AA', 'Admin Attendance');
 INSERT INTO TIMEOFF (NAME, DESCRIPTION) values ('OB', 'Official Business');
 
+INSERT INTO EMPLOYEE_TIMEOFF (USER_ID, TIMEOFF_ID, DESCRIPTION) values (1, 1, 'test');

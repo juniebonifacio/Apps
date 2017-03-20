@@ -8,13 +8,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.business.EmployeeTimeOffBusiness;
 import com.business.TimeOffBusiness;
+import com.domain.business.EmployeeTimeOffBO;
 import com.domain.business.TimeOffBO;
 
 @RestController
 public class LeaveCalendarWebService {
 
 	private TimeOffBusiness timeOffBusinessFacade;
+	private EmployeeTimeOffBusiness employeeTimeOffBusinessFacade;
 	
 	//Default Constructor
 	public LeaveCalendarWebService() {}
@@ -24,9 +27,15 @@ public class LeaveCalendarWebService {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/services/getAllTimeOffs", method=RequestMethod.GET, headers="Accept=application/json")
-	public List<TimeOffBO> getAllTimeOffs() {
+	@RequestMapping(value="/services/getAllKindsOfTimeOffs", method=RequestMethod.GET, headers="Accept=application/json")
+	public List<TimeOffBO> getAllKindsOfTimeOffs() {
 		return timeOffBusinessFacade.getAllTimeOffs();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/services/getAllEmployeeTimeOffs", method=RequestMethod.GET, headers="Accept=application/json")
+	public List<EmployeeTimeOffBO> getAllEmployeeTimeOffs() {
+		return employeeTimeOffBusinessFacade.getAllEmployeeTimeOffs();
 	}
 	
 	/**
@@ -35,6 +44,14 @@ public class LeaveCalendarWebService {
 	@Autowired
 	public void setTimeOffBusinessFacade(TimeOffBusiness timeOffBusinessFacade) {
 		this.timeOffBusinessFacade = timeOffBusinessFacade;
+	}
+
+	/**
+	 * @param employeeTimeOffBusinessFacade the employeeTimeOffBusinessFacade to set
+	 */
+	@Autowired
+	public void setEmployeeTimeOffBusinessFacade(EmployeeTimeOffBusiness employeeTimeOffBusinessFacade) {
+		this.employeeTimeOffBusinessFacade = employeeTimeOffBusinessFacade;
 	}
 	
 	

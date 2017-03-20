@@ -13,6 +13,7 @@
 		<class>com.domain.hibernate.ItemVO</class>
 		<class>com.domain.hibernate.CategoryVO</class>
 		<class>com.domain.hibernate.TimeOffVO</class>
+		<class>com.domain.hibernate.EmployeeTimeOffVO</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />

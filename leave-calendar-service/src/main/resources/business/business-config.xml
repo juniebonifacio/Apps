@@ -24,4 +24,8 @@
 		<property name="timeOffDao" ref="timeOffDao"/>
 	</bean>
 		
+	<bean id="employeeTimeOffBusinessFacade" class="com.business.impl.EmployeeTimeOffBusinessImpl">
+		<property name="employeeTimeOffDao" ref="employeeTimeOffDao"/>
+	</bean>
+		
 </beans>
