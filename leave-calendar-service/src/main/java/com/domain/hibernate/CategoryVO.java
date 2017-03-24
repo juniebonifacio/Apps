@@ -27,11 +27,10 @@ public class CategoryVO {
 	@Column(name="DESCRIPTION")
 	private String description;
 	
-	
 	@OneToMany(orphanRemoval=true, fetch=FetchType.LAZY,
 			   targetEntity=ItemVO.class, mappedBy="category")
 	@JsonManagedReference
-	private List<ItemVO> items; 
+	private List<ItemVO> items; //One Category can have many Items
 
 	/**
 	 * @return the id

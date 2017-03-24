@@ -30,9 +30,10 @@
       <url-pattern>/</url-pattern>
    </servlet-mapping>
 
+	<!-- the main applicationContext.xml file of this application -->
    <context-param>
    		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/grocery-buddy-service-servlet.xml</param-value>	
+		<param-value>/WEB-INF/leave-calendar-service-servlet.xml</param-value>	
    </context-param>
 
 </web-app>

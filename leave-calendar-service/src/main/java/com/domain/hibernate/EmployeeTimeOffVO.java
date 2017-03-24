@@ -4,7 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "EMPLOYEE_TIMEOFF")
@@ -15,8 +19,9 @@ public class EmployeeTimeOffVO {
 	@Column(name="EMPLOYEE_TIMEOFF_ID")
 	private int id;
 	
-	@Column(name="USER_ID")
-	private int userId;
+	/** User Id where this TimeOff belongs */
+	@Column(name = "OWNER_ID")
+	private int ownerId;
 	
 	@Column(name="TIMEOFF_ID")
 	private int timeOffId;
@@ -24,6 +29,16 @@ public class EmployeeTimeOffVO {
 	@Column(name="DESCRIPTION")
 	private String description;
 
+    @ManyToOne(optional=false, targetEntity=UserVO.class)
+    @JoinColumn(name="OWNER_ID", referencedColumnName="USER_ID", insertable=false, updatable=false)
+    @JsonBackReference
+    private UserVO user; //Back Reference To User: One TimeOff has an Owner.
+    
+    @ManyToOne(optional=false, targetEntity=TimeOffVO.class)
+    @JoinColumn(name="TIMEOFF_ID", referencedColumnName="TIMEOFF_ID", insertable=false, updatable=false)
+    @JsonBackReference
+	private TimeOffVO timeOff; //Back Reference To TimeOff: One EmployeeTimeOff is under a certain Type of TimeOff i.e. SL, VL.
+	
 	/**
 	 * @return the id
 	 */
@@ -39,17 +54,17 @@ public class EmployeeTimeOffVO {
 	}
 
 	/**
-	 * @return the userId
+	 * @return the ownerId
 	 */
-	public int getUserId() {
-		return userId;
+	public int getOwnerId() {
+		return ownerId;
 	}
 
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
 	}
 
 	/**
@@ -78,6 +93,34 @@ public class EmployeeTimeOffVO {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	/**
+	 * @return the user
+	 */
+	public UserVO getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(UserVO user) {
+		this.user = user;
+	}
+
+	/**
+	 * @return the timeOff
+	 */
+	public TimeOffVO getTimeOff() {
+		return timeOff;
+	}
+
+	/**
+	 * @param timeOff the timeOff to set
+	 */
+	public void setTimeOff(TimeOffVO timeOff) {
+		this.timeOff = timeOff;
 	}
 	
 	

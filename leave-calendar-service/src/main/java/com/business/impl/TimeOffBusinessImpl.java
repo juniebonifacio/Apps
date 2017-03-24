@@ -7,6 +7,7 @@ import javax.persistence.NoResultException;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.business.BusinessType;
 import com.business.TimeOffBusiness;
@@ -20,18 +21,21 @@ public class TimeOffBusinessImpl extends BusinessType implements TimeOffBusiness
 	Logger log = Logger.getLogger(ItemBusinessImpl.class);
 
 	@Override
+	@Transactional
 	public void addTimeOff(TimeOffBO timeOff) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
+	@Transactional
 	public void updateTimeOff(TimeOffBO timeOff) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
+	@Transactional
 	public List<TimeOffBO> getAllTimeOffs() {
 		List<TimeOffBO> timeOffs = new ArrayList<TimeOffBO>();
 		
@@ -43,6 +47,7 @@ public class TimeOffBusinessImpl extends BusinessType implements TimeOffBusiness
 	}
 
 	@Override
+	@Transactional
 	public TimeOffBO getTimeOffById(int timeOffId) throws NoResultException {
 		// TODO Auto-generated method stub
 		return null;

@@ -1,10 +1,16 @@
 package com.domain.hibernate;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "TIMEOFF")
@@ -21,6 +27,11 @@ public class TimeOffVO {
 	@Column(name="DESCRIPTION")
 	private String description;
 
+	@OneToMany(orphanRemoval=true, fetch=FetchType.LAZY, 
+				targetEntity=EmployeeTimeOffVO.class, mappedBy="timeOff")
+	@JsonManagedReference
+	private List<EmployeeTimeOffVO> listOfEmployeeTimeOffs; //One Kind of TimeOff can be requested by many Employees. i.e. VL, SL.
+	
 	/**
 	 * @return the id
 	 */
@@ -61,6 +72,20 @@ public class TimeOffVO {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	/**
+	 * @return the listOfEmployeeTimeOffs
+	 */
+	public List<EmployeeTimeOffVO> getListOfEmployeeTimeOffs() {
+		return listOfEmployeeTimeOffs;
+	}
+
+	/**
+	 * @param listOfEmployeeTimeOffs the listOfEmployeeTimeOffs to set
+	 */
+	public void setListOfEmployeeTimeOffs(List<EmployeeTimeOffVO> listOfEmployeeTimeOffs) {
+		this.listOfEmployeeTimeOffs = listOfEmployeeTimeOffs;
 	}
 	
 }
