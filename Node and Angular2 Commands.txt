@@ -1,0 +1,34 @@
+cd workspace/
+dir
+angular2-seed/
+npm install -g
+npm install -g typings
+npm start
+npm run lite
+
+
+
+To Run Angular, only 2 commands needed
+npm install
+npm start
+
+
+
+
+
+
+Default:
+
+leave-calendar-ui
+	app			commit - for .ts typescript files
+	index.html		commit
+	package.json		commit
+	typings			commit
+	typings.json		commit
+	
+
+
+generated:
+- node_modules
+- js files under app
+
