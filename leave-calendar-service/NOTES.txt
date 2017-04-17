@@ -2,7 +2,7 @@ http://localhost:8080/leave-calendar-service/hello
 
 http://localhost:8080/leave-calendar-service/services/getAllItems
 
-http://localhost:8080/leave-calendar-service/services/getAllKindsOfTimeOffs
+http://localhost:8080/leave-calendar-service/services/getAllTypesOfTimeOff
 http://localhost:8080/leave-calendar-service/services/getAllEmployeeTimeOffs
 
 
@@ -218,3 +218,25 @@ Only name, role, and password should have values, otherwise you have large data 
 Solution: 
 
 ==================================
+Error:
+com.fasterxml.jackson.databind.JsonMappingException: Multiple back-reference properties with name 'defaultReference'
+AND
+13:34:39,761 WARN  [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter] (http--127.0.0.1-8080-1) Failed to evaluate deserialization for type [simple type, class com.domain.business.EmployeeTimeOffBO]: java.lang.IllegalArgumentException: Can not handle managed/back reference 'defaultReference': no back reference property found from type [collection type; class java.util.List, contains [simple type, class com.domain.hibernate.EmployeeTimeOffVO]]
+
+Solution:
+Under EmployeeTimeOffVO
+
+    @JsonBackReference(value="EmployeeTimeOffVO-To-UserVO")
+    @ManyToOne(optional=false, targetEntity=UserVO.class)
+    @JoinColumn(name="OWNER_ID", referencedColumnName="USER_ID", insertable=false, updatable=false)
+    private UserVO user; //Back Reference To User: One TimeOff has an Owner.
+    
+Under UserVO
+
+	@JsonManagedReference(value="EmployeeTimeOffVO-To-UserVO")
+	@OneToMany(orphanRemoval=true, fetch=FetchType.LAZY, mappedBy="user")
+	private List<EmployeeTimeOffVO> listOfEmployeeTimeOffs; //One User can have many TimeOffs
+
+ 
+http://stackoverflow.com/questions/20119142/jackson-multiple-back-reference-properties-with-name-defaultreference
+http://stackoverflow.com/questions/28334308/deserialization-and-multiple-back-reference-properties-with-name-defaultreferen

@@ -28,8 +28,7 @@ public class EmployeeTimeOffDaoImpl implements EmployeeTimeOffDao {
 	
 	@Override
 	public void addEmployeeTimeOff(EmployeeTimeOffVO event) {
-		// TODO Auto-generated method stub
-
+		entityManager.persist(event);
 	}
 
 	@Override

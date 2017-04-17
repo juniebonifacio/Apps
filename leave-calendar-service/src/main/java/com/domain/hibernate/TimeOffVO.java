@@ -27,9 +27,9 @@ public class TimeOffVO {
 	@Column(name="DESCRIPTION")
 	private String description;
 
+	@JsonManagedReference(value="EmployeeTimeOffVO-To-TimeOffVO")
 	@OneToMany(orphanRemoval=true, fetch=FetchType.LAZY, 
 				targetEntity=EmployeeTimeOffVO.class, mappedBy="timeOff")
-	@JsonManagedReference
 	private List<EmployeeTimeOffVO> listOfEmployeeTimeOffs; //One Kind of TimeOff can be requested by many Employees. i.e. VL, SL.
 	
 	/**

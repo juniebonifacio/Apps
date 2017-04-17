@@ -29,14 +29,14 @@ public class EmployeeTimeOffVO {
 	@Column(name="DESCRIPTION")
 	private String description;
 
+    @JsonBackReference(value="EmployeeTimeOffVO-To-UserVO")
     @ManyToOne(optional=false, targetEntity=UserVO.class)
     @JoinColumn(name="OWNER_ID", referencedColumnName="USER_ID", insertable=false, updatable=false)
-    @JsonBackReference
     private UserVO user; //Back Reference To User: One TimeOff has an Owner.
     
+    @JsonBackReference(value="EmployeeTimeOffVO-To-TimeOffVO")
     @ManyToOne(optional=false, targetEntity=TimeOffVO.class)
     @JoinColumn(name="TIMEOFF_ID", referencedColumnName="TIMEOFF_ID", insertable=false, updatable=false)
-    @JsonBackReference
 	private TimeOffVO timeOff; //Back Reference To TimeOff: One EmployeeTimeOff is under a certain Type of TimeOff i.e. SL, VL.
 	
 	/**

@@ -12,7 +12,8 @@
 	<context:annotation-config />
 	<context:component-scan base-package="com" />
 	<import resource="classpath:business/business-config.xml" />
-	<mvc:annotation-driven />
+	<mvc:annotation-driven/>
+	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
