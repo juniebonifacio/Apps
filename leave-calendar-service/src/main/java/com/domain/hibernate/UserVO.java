@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
@@ -32,8 +33,12 @@ public class UserVO {
 	private String password;
 	
 	@OneToMany(orphanRemoval=true, fetch=FetchType.LAZY, mappedBy="user")
-	private List<ItemVO> items; 
+	private List<ItemVO> items;  //One User can have many Items
 
+	@JsonManagedReference(value="EmployeeTimeOffVO-To-UserVO")
+	@OneToMany(orphanRemoval=true, fetch=FetchType.LAZY, mappedBy="user")
+	private List<EmployeeTimeOffVO> listOfEmployeeTimeOffs; //One User can have many TimeOffs
+	
 	/**
 	 * @return the id
 	 */
@@ -105,6 +110,20 @@ public class UserVO {
 	 */
 	public void setItems(List<ItemVO> items) {
 		this.items = items;
+	}
+
+	/**
+	 * @return the listOfEmployeeTimeOffs
+	 */
+	public List<EmployeeTimeOffVO> getListOfEmployeeTimeOffs() {
+		return listOfEmployeeTimeOffs;
+	}
+
+	/**
+	 * @param listOfEmployeeTimeOffs the listOfEmployeeTimeOffs to set
+	 */
+	public void setListOfEmployeeTimeOffs(List<EmployeeTimeOffVO> listOfEmployeeTimeOffs) {
+		this.listOfEmployeeTimeOffs = listOfEmployeeTimeOffs;
 	}
 
 	/* (non-Javadoc)

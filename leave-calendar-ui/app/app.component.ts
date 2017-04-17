@@ -5,7 +5,7 @@ import {Item} from './item';
 @Component({
     selector: 'my-app',
     template: `
-    <h1>Item Web Service Client App</h1>
+    <h1>Leave Calendar App</h1>
     <table title='Grocery Items Buddy'>
         <tr>
             <th>Item ID</th>

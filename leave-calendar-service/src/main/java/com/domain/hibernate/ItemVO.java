@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -57,12 +58,12 @@ public class ItemVO {
     @ManyToOne(optional=false, targetEntity=UserVO.class)
     @JoinColumn(name="OWNER_ID", referencedColumnName="USER_ID", insertable=false, updatable=false)
     @JsonBackReference
-    private UserVO user;
+    private UserVO user; //Back Reference To User: One Item has an Owner.
     
     @ManyToOne(optional=false, targetEntity=CategoryVO.class)
     @JoinColumn(name="CATEGORY_ID", referencedColumnName="CAT_ID", insertable=false, updatable=false)
     @JsonBackReference
-	private CategoryVO category; 
+	private CategoryVO category;  //Back Reference To User: One Item belongs to a Category.
 	
 	/**
 	 * @return the id

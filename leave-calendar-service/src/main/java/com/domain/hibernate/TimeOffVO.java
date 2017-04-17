@@ -13,12 +13,12 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Table(name = "CATEGORY")
-public class CategoryVO {
+@Table(name = "TIMEOFF")
+public class TimeOffVO {
 
 	@Id 
 	@GeneratedValue
-	@Column(name="CAT_ID")
+	@Column(name="TIMEOFF_ID")
 	private int id;
 	
 	@Column(name="NAME")
@@ -26,12 +26,12 @@ public class CategoryVO {
 	
 	@Column(name="DESCRIPTION")
 	private String description;
-	
-	@OneToMany(orphanRemoval=true, fetch=FetchType.LAZY,
-			   targetEntity=ItemVO.class, mappedBy="category")
-	@JsonManagedReference
-	private List<ItemVO> items; //One Category can have many Items
 
+	@JsonManagedReference(value="EmployeeTimeOffVO-To-TimeOffVO")
+	@OneToMany(orphanRemoval=true, fetch=FetchType.LAZY, 
+				targetEntity=EmployeeTimeOffVO.class, mappedBy="timeOff")
+	private List<EmployeeTimeOffVO> listOfEmployeeTimeOffs; //One Kind of TimeOff can be requested by many Employees. i.e. VL, SL.
+	
 	/**
 	 * @return the id
 	 */
@@ -75,18 +75,17 @@ public class CategoryVO {
 	}
 
 	/**
-	 * @return the items
+	 * @return the listOfEmployeeTimeOffs
 	 */
-	public List<ItemVO> getItems() {
-		return items;
+	public List<EmployeeTimeOffVO> getListOfEmployeeTimeOffs() {
+		return listOfEmployeeTimeOffs;
 	}
 
 	/**
-	 * @param items the items to set
+	 * @param listOfEmployeeTimeOffs the listOfEmployeeTimeOffs to set
 	 */
-	public void setItems(List<ItemVO> items) {
-		this.items = items;
+	public void setListOfEmployeeTimeOffs(List<EmployeeTimeOffVO> listOfEmployeeTimeOffs) {
+		this.listOfEmployeeTimeOffs = listOfEmployeeTimeOffs;
 	}
-
 	
 }
