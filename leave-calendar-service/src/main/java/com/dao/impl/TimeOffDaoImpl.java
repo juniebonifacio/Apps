@@ -39,9 +39,15 @@ public class TimeOffDaoImpl implements TimeOffDao {
 	}
 
 	@Override
-	public TimeOffVO getTimeOffById(int itemId) throws NoResultException {
-		// TODO Auto-generated method stub
-		return null;
+	public TimeOffVO getTimeOffById(Integer timeOffId) throws NoResultException {
+		TimeOffVO timeOffVO = entityManager.find(TimeOffVO.class, timeOffId);
+		System.out.println("timeOffVO: " + timeOffVO);
+		return timeOffVO;
+	}
+	
+	@Override
+	public void deleteTimeOffById(Integer id) {
+
 	}
 
 }

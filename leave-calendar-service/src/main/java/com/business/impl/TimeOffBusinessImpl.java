@@ -16,13 +16,15 @@ import com.domain.business.TimeOffBO;
 import com.domain.hibernate.TimeOffVO;
 
 public class TimeOffBusinessImpl extends BusinessType implements TimeOffBusiness {
+	
 	/** TimeOff data access object*/
 	private TimeOffDao timeOffDao;
-	Logger log = Logger.getLogger(ItemBusinessImpl.class);
+	
+	Logger log = Logger.getLogger(TimeOffBusinessImpl.class);
 
 	@Override
 	@Transactional
-	public void addTimeOff(TimeOffBO timeOff) {
+	public void addTimeOffType(TimeOffBO timeOff) {
 		// TODO Auto-generated method stub
 
 	}
@@ -48,9 +50,22 @@ public class TimeOffBusinessImpl extends BusinessType implements TimeOffBusiness
 
 	@Override
 	@Transactional
-	public TimeOffBO getTimeOffById(int timeOffId) throws NoResultException {
-		// TODO Auto-generated method stub
-		return null;
+	public TimeOffBO getTimeOffById(Integer id) throws NoResultException {
+		
+		TimeOffVO timeOffVO = null;
+		try{
+			timeOffVO = timeOffDao.getTimeOffById(id);
+		}catch(NoResultException nre){
+			log.warn("No timeOff with id '" + id + "' is present in the database");
+			return null;
+		}
+		
+		return getMapper().map(timeOffVO, TimeOffBO.class);
+	}
+	
+	@Override
+	public void deleteTimeOffById(Integer id) {
+		timeOffDao.deleteTimeOffById(id);
 	}
 
 	/**
