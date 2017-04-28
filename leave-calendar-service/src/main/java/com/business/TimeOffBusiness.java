@@ -9,7 +9,7 @@ import com.domain.business.TimeOffBO;
 public interface TimeOffBusiness {
 
 	/**Insert an item*/
-	public void addTimeOff(TimeOffBO timeOff);
+	public void addTimeOffType(TimeOffBO timeOff);
 	
 	/**Update an item*/
 	public void updateTimeOff(TimeOffBO timeOff);
@@ -18,6 +18,9 @@ public interface TimeOffBusiness {
 	public List<TimeOffBO> getAllTimeOffs(); 
 	
 	/**Gets an items given the item Id*/
-	public TimeOffBO getTimeOffById(int itemId) throws NoResultException;
+	public TimeOffBO getTimeOffById(Integer id) throws NoResultException;
+	
+	/** Delete an item */
+	public void deleteTimeOffById(Integer id);
 	
 }

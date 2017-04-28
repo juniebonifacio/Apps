@@ -21,4 +21,9 @@
 		</field>
 	</mapping>
 
+<!-- 	<mapping map-null="true">
+		<class-a>com.domain.hibernate.TimeOffVO</class-a>
+		<class-b>com.domain.business.TimeOffBO</class-b>
+	</mapping> -->
+
 </mappings>  

@@ -6,6 +6,13 @@ http://localhost:8080/leave-calendar-service/services/getAllTypesOfTimeOff
 http://localhost:8080/leave-calendar-service/services/getAllEmployeeTimeOffs
 
 
+API:
+
+/services/timeoff/types
+/services/timeoff/types/add
+/services/timeoff/types/update
+/services/timeoff/types/remove, /services/timeoff/types/delete
+
 Database Modeling:
 
 Credits to the owner. I am loosely basing my database with the sample.
@@ -44,6 +51,10 @@ Database system Isolation Levels, in database transactions:
 -SERIALIZABLE (protecting against dirty, non-repeatable reads and phantom reads)
 
 https://vladmihalcea.com/2014/12/23/a-beginners-guide-to-transaction-isolation-levels-in-enterprise-java/
+
+REST API Development:
+http://howtodoinjava.com/spring/spring-mvc/spring-mvc-requestmapping-annotation-examples/
+http://www.baeldung.com/spring-requestmapping
 
 ==================================
 Error:

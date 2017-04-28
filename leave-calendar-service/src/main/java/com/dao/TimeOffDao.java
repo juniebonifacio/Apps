@@ -7,6 +7,7 @@ import javax.persistence.NoResultException;
 import com.domain.hibernate.TimeOffVO;
 
 public interface TimeOffDao {
+	
 	/**Insert an item*/
 	public void addTimeOff(TimeOffVO event);
 	
@@ -17,6 +18,9 @@ public interface TimeOffDao {
 	public List<TimeOffVO> getAllTimeOffs(); 
 	
 	/**Gets an items given the item Id*/
-	public TimeOffVO getTimeOffById(int itemId) throws NoResultException;
+	public TimeOffVO getTimeOffById(Integer itemId) throws NoResultException;
+	
+	/** Delete an event */
+	public void deleteTimeOffById(Integer timeOffId);
 	
 }

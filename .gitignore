@@ -14,4 +14,4 @@ leave-calendar-ui/app/*.js.map
 leave-calendar-service/.classpath
 leave-calendar-service/.project
 
-
+leave-calendar-service/bin/
